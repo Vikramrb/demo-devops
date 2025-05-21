@@ -1,0 +1,27 @@
+pipeline {
+agent any
+ 
+tools {
+maven 'maven'
+}
+ 
+ 
+steps {
+ 
+sh "mvn compile"
+}
+}
+ 
+stage ('Testing') {
+steps {
+sh "mvn test"
+}
+}
+ 
+stage ('packaging') {
+steps {
+sh "mvn package"
+}
+}
+}
+}
